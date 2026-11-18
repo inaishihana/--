@@ -1,22 +1,31 @@
 package 電卓;
 
+/**
+ * 電卓アプリケーションを起動するクラス
+ */
 public class CalculatorApp {
-public static void main(String[] args) {
 
+    /**
+     * 電卓アプリケーションを起動する
+     *
+     * @param args コマンドライン引数（このプログラムでは使用しない）
+     */
+    public static void main(String[] args) {
 
-CalculatorFrame view =
-new CalculatorFrame();
+        // 画面（View）を作成
+        CalculatorFrame view = new CalculatorFrame();
 
-CalculatorModel model =
-new CalculatorModel();
+        // 計算処理（Model）を作成
+        CalculatorModel model = new CalculatorModel();
 
-Calcuontroller controller =
-new Calcuontroller(
-model,
-view);
+        // ModelとViewをつなぐControllerを作成
+        CalculatorController controller =
+                new CalculatorController(model, view);
 
-view.bindController(controller);
+        // ViewにControllerを
+        view.bindController(controller);
 
-view.setVisible(true);
+        // 画面表示
+        view.setVisible(true);
     }
 }
