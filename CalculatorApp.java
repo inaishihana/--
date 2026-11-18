@@ -22,7 +22,7 @@ public class CalculatorApp {
         CalculatorController controller =
                 new CalculatorController(model, view);
 
-        // ViewにControllerを
+        // ViewにControllerを作成
         view.bindController(controller);
 
         // 画面表示
