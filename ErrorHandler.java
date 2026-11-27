@@ -1,10 +1,16 @@
 package 電卓;
 
+
 public class ErrorHandler {
-public static void handle(Exception e) {
-System.out.println("エラー発生:");
-e.printStackTrace();
 
+    /**
+     * エラーメッセージをコンソールに表示する
+     *
+     * スタックトレースは表示しない
+     *
+     * @param e 発生した例外
+     */
+    public static void handle(Exception e) {
+        System.out.println(e.getMessage());
+    }
 }
-}
-
