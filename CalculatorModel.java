@@ -173,7 +173,7 @@ public class CalculatorModel {
         }
         // 左から順番に計算
         else if (pendingOperator != null) {
-            leftValue = calculate(leftValue, current, pendingOperator);
+            leftValue = apply(leftValue, current, pendingOperator);
         }
 
         pendingOperator = op;
@@ -184,7 +184,7 @@ public class CalculatorModel {
     /**
      * 計算を実行する
      */
-    public void equalsOperation() {
+    public void equalsOp() {
 
         if (state == InputState.ERROR) {
             return;
@@ -203,7 +203,7 @@ public class CalculatorModel {
 
         BigDecimal right = new BigDecimal(currentInput.toString());
 
-        leftValue = calculate(leftValue, right, pendingOperator);
+        leftValue = apply(leftValue, right, pendingOperator);
 
         pendingOperator = null;
         currentInput.setLength(0);
@@ -219,7 +219,7 @@ public class CalculatorModel {
      * @param op 演算子
      * @return 計算結果
      */
-    private BigDecimal calculate(
+    private BigDecimal apply(
             BigDecimal left,
             BigDecimal right,
             Operator op) {

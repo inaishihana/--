@@ -2,9 +2,8 @@ package 電卓;
 
 public class CalculatorController {
 
-    private CalculatorModel model;
-    private CalculatorFrame view;
-
+    private final CalculatorModel model;
+    private final CalculatorFrame view;
 
     /**
      * コントローラを生成する
@@ -12,14 +11,10 @@ public class CalculatorController {
      * @param model 電卓のモデル
      * @param view 電卓の画面
      */
-    public CalculatorController(
-            CalculatorModel model,
-            CalculatorFrame view) {
-
+    public CalculatorController(CalculatorModel model, CalculatorFrame view) {
         this.model = model;
         this.view = view;
     }
-
 
     /**
      * 数字入力
@@ -27,25 +22,19 @@ public class CalculatorController {
      * @param ch 入力された数字
      */
     public void onDigit(char ch) {
-
         model.appendDigit(ch);
-
         refresh();
     }
-
 
     /**
      * 小数点入力
      */
     public void onDot() {
-
         model.appendDot();
-
         refresh();
     }
 
-
-     /**
+    /**
      * 演算子入力
      *
      * @param op 入力された演算子
@@ -64,7 +53,7 @@ public class CalculatorController {
      */
     public void onEquals() {
         try {
-            model.equalsOperation();
+            model.equalsOp();
             refresh();
         } catch (ArithmeticException e) {
             showError(e);
